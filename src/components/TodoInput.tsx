@@ -1,15 +1,16 @@
 import React, { useState } from "react";
 import styled from "styled-components";
+import { props } from "../api";
 
-const TodoInput = ({ setTodos }: any) => {
+const TodoInput = ({ setTodos }: props) => {
   const [titleValue, setTitleValue] = useState("");
   const [contentValue, setContentValue] = useState("");
 
-  const titleChangeHandler = (event: any) => {
+  const titleChangeHandler = (event: React.ChangeEvent<HTMLInputElement>) => {
     setTitleValue(event.target.value);
   };
 
-  const contentChangeHandler = (event: any) => {
+  const contentChangeHandler = (event: React.ChangeEvent<HTMLInputElement>) => {
     setContentValue(event.target.value);
   };
 
@@ -20,10 +21,10 @@ const TodoInput = ({ setTodos }: any) => {
     isDone: false,
   };
 
-  const InputAddHandler = (event: any) => {
+  const InputAddHandler = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
-    setTodos((prev: any) => {
+    setTodos((prev) => {
       return [...prev, newTodo];
     });
     setTitleValue("");
