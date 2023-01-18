@@ -1,6 +1,6 @@
 import React from "react";
 
-const TodoCard = ({ isActive, item, setTodos }) => {
+const TodoCard = ({ isActive, item, setTodos }: props) => {
   const toggleButtonHandler = () => {
     setTodos((prev) =>
       prev.map((t) => {

@@ -8,6 +8,12 @@ import React, { useState } from "react";
 function App() {
   const [todos, setTodos] = useState(initialState);
 
+  interface props {
+    todos: todoInitial;
+    setTodos: React.Dispatch<React.SetStateAction<todoInitial[]>>;
+    isActive: boolean;
+  }
+
   return (
     <AppContainer>
       <Header />
@@ -19,7 +25,14 @@ function App() {
   );
 }
 
-const initialState = [
+interface todoInitial {
+  id: number;
+  title: string;
+  content: string;
+  isDone: boolean;
+}
+
+const initialState: todoInitial[] = [
   {
     id: Date.now(),
     title: "화이팅",
