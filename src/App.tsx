@@ -4,8 +4,6 @@ import TodoInput from "./components/TodoInput";
 import Footer from "./components/Footer";
 import TodoCardBox from "./components/TodoCardBox";
 import React, { useState } from "react";
-import { props } from "./api";
-import { todoInitial } from "./api";
 
 function App() {
   const [todos, setTodos] = useState(initialState);
@@ -13,7 +11,7 @@ function App() {
   return (
     <AppContainer>
       <Header />
-      <TodoInput todos={todos} setTodos={setTodos} />
+      <TodoInput setTodos={setTodos} />
       <TodoCardBox isActive={true} todos={todos} setTodos={setTodos} />
       <TodoCardBox isActive={false} todos={todos} setTodos={setTodos} />
       <Footer />
@@ -21,7 +19,14 @@ function App() {
   );
 }
 
-const initialState: todoInitial[] = [
+export interface TodoType {
+  readonly id: number;
+  title: string;
+  content: string;
+  isDone: boolean;
+}
+
+const initialState: TodoType[] = [
   {
     id: Date.now(),
     title: "화이팅",

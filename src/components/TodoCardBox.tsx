@@ -1,8 +1,14 @@
 import React from "react";
 import TodoCard from "./TodoCard";
-import { props } from "../api";
+import { TodoType } from "../App";
 
-const TodoCardBox = ({ isActive, todos, setTodos }: props) => {
+interface TodoCardBoxProps {
+  isActive: boolean;
+  todos: TodoType[];
+  setTodos: React.Dispatch<React.SetStateAction<TodoType[]>>;
+}
+
+const TodoCardBox = ({ isActive, todos, setTodos }: TodoCardBoxProps) => {
   return (
     <div>
       <div>{isActive ? "Work" : "Done"}</div>

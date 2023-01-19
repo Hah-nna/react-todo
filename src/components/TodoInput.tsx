@@ -1,8 +1,12 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import { props } from "../api";
+import { TodoType } from "../App";
 
-const TodoInput = ({ setTodos }: props) => {
+interface TodoInputProps {
+  setTodos: React.Dispatch<React.SetStateAction<TodoType[]>>;
+}
+
+const TodoInput = ({ setTodos }: TodoInputProps) => {
   const [titleValue, setTitleValue] = useState("");
   const [contentValue, setContentValue] = useState("");
 

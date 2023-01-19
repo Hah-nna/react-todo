@@ -1,7 +1,13 @@
 import React from "react";
-import { props } from "../api";
+import { TodoType } from "../App";
 
-const TodoCard = ({ isActive, item, setTodos }: props) => {
+interface TodoCardProps {
+  isActive: boolean;
+  item: TodoType;
+  setTodos: React.Dispatch<React.SetStateAction<TodoType[]>>;
+}
+
+const TodoCard = ({ isActive, item, setTodos }: TodoCardProps) => {
   const toggleButtonHandler = () => {
     setTodos((prev) =>
       prev.map((t) => {
