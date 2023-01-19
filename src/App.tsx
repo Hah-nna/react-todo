@@ -4,15 +4,11 @@ import TodoInput from "./components/TodoInput";
 import Footer from "./components/Footer";
 import TodoCardBox from "./components/TodoCardBox";
 import React, { useState } from "react";
+import { props } from "./api";
+import { todoInitial } from "./api";
 
 function App() {
   const [todos, setTodos] = useState(initialState);
-
-  interface props {
-    todos: todoInitial;
-    setTodos: React.Dispatch<React.SetStateAction<todoInitial[]>>;
-    isActive: boolean;
-  }
 
   return (
     <AppContainer>
@@ -23,13 +19,6 @@ function App() {
       <Footer />
     </AppContainer>
   );
-}
-
-interface todoInitial {
-  id: number;
-  title: string;
-  content: string;
-  isDone: boolean;
 }
 
 const initialState: todoInitial[] = [
