@@ -1,4 +1,5 @@
 import React from "react";
+import { props } from "../api";
 
 const TodoCard = ({ isActive, item, setTodos }: props) => {
   const toggleButtonHandler = () => {
